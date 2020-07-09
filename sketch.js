@@ -17,22 +17,22 @@ function setup() {
   rectMode(CENTER);
   ellipseMode(CENTER);
 
-  block1 = new Box(280, 180, 'red');
-  block2 = new Box(300, 180, 'blue');
-  block3 = new Box(320, 180, 'green');
-  block4 = new Box(290, 160, 'yellow');
-  block5 = new Box(310, 160, 'pink');
-  block6 = new Box(300, 140, 'purple');
-  block7 = new Box(580, 80, 'silver');
-  block8 = new Box(600, 80, 'gold');
-  block9 = new Box(620, 80, 'orange');
-  block10 = new Box(590, 60, 'indigo');
-  block11 = new Box(610, 60, 'white');
-  block12 = new Box(600, 40, 'brown');
+  block1 = new Box(280, 180);
+  block2 = new Box(300, 180);
+  block3 = new Box(320, 180);
+  block4 = new Box(290, 160);
+  block5 = new Box(310, 160);
+  block6 = new Box(300, 140);
+  block7 = new Box(580, 80);
+  block8 = new Box(600, 80);
+  block9 = new Box(620, 80);
+  block10 = new Box(590, 60);
+  block11 = new Box(610, 60);
+  block12 = new Box(600, 40);
 
-  polygon = new Polygon(100, 200);
+  polygon = new Polygon(100, 100);
 
-  slingshot = new SlingShot(polygon.body, {x: 100, y: 200})
+  slingshot = new SlingShot(polygon.body, {x: 100, y: 100})
 
   stand1 = new Ground(300, 200, 100, 10, 'white');
   stand2 = new Ground(600, 100, 100, 10, 'white');
@@ -73,7 +73,12 @@ function mouseDragged() {
   Body.setPosition(polygon.body, {x: mouseX , y: mouseY});
 }
 
-
 function mouseReleased(){
   slingshot.fly();
+}
+
+function keyPressed() {
+  if (keyCode === 32) {
+    slingshot.attach(polygon.body);
+  }
 }

@@ -4,7 +4,7 @@ class SlingShot{
             bodyA: bodyA,
             pointB: pointB,
             stiffness: 0.04,
-            length: 10
+            length: 5
         }
         
         this.pointB = pointB
@@ -14,6 +14,11 @@ class SlingShot{
 
     fly(){
         this.sling.bodyA = null;
+    }
+
+    attach(bodyA) {
+        Matter.Body.setPosition(bodyA, {x: 200, y: 50});
+        this.sling.bodyA = bodyA;
     }
 
     display(){
