@@ -6,7 +6,7 @@ const Constraint = Matter.Constraint;
 const Render = Matter.Render;
 
 var engine, world;
-var stand1, stand2, ground, polygon, slingshot;
+var stand1, stand2, ground, polygon, slingshot, score;
 var block1, block2, block3, block4, block5, block6, block7, block8, block9, block10, block11, block12, block13, block14, block15, block16;
 
 function setup() {
@@ -37,6 +37,7 @@ function setup() {
   stand1 = new Ground(300, 200, 100, 10, 'white');
   stand2 = new Ground(600, 100, 100, 10, 'white');
   ground = new Ground(400, height, width, 10, 'black');
+  score = 0;
 }
 
 function draw() {
@@ -46,6 +47,21 @@ function draw() {
   background(0);  
 
   Engine.update(engine);
+
+  text ("SCORE: " + score, 700, 40);
+
+  block1.score();
+  block2.score();
+  block3.score();
+  block4.score();
+  block5.score();
+  block6.score();
+  block7.score();
+  block8.score();
+  block9.score();
+  block10.score();
+  block11.score();
+  block12.score();
 
   block1.display();
   block2.display();
